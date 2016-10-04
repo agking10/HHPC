@@ -1,0 +1,43 @@
+W3C VALIDTATION REPORT
+-------------------------------------
+HTML
+-------------------------------------
+
+index.html
+:15.6-15.39: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+:40.4-40.52: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+
+calendar.html
+:15.6-15.42: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+:40.5-40.54: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+:71.8-71.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:76.8-76.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:81.8-81.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:86.8-86.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:91.8-91.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:105.8-105.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:120.8-120.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:125.8-125.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:130.8-130.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:135.8-135.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:140.8-140.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:145.7-145.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+:150.8-150.11: error: Element “br” not allowed as child of element “ul” in this context. (Suppressing further errors from this subtree.)
+
+contact.html
+:15.6-15.42: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+:45.8-45.51: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+:60.7-60.50: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+
+media.html
+:14.6-14.42: error: An “img” element must have an “alt” attribute, except under certain conditions. For details, consult guidance on providing text alternatives for images.
+-------------------------------------
+CSS
+-------------------------------------
+
+themestyle.css
+: non-document-error io: Non-XML Content-Type: “text/css”.
+-------------------------------------
+JS
+-------------------------------------
+-------------------------------------
