@@ -2,37 +2,67 @@
 #author Austin Kemper 10/4/2016
 #Validate HHPC documents using w3c api
 
-echo "W3C VALIDTATION REPORT" > ~/CODE/HTML/HHPC/w3cReport.txt
-OUTPUTPATH="/Users/austinkemper/CODE/HTML/HHPC/w3cReport.txt"
+OUTPUT_PATH="/Users/austinkemper/CODE/HTML/HHPC/w3cReport.txt"
+HHPC_ROOT_PATH="/Users/austinkemper/CODE/HTML/HHPC"
+CSS_LINES_TO_HEAD=20
+echo "W3C VALIDTATION REPORT" > $OUTPUT_PATH
 
 #HTML
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
-echo "HTML">> ~/CODE/HTML/HHPC/w3cReport.txt
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
+echo "-------------------------------------" >> $OUTPUT_PATH
+echo "HTML">> $OUTPUT_PATH
+echo "-------------------------------------" >> $OUTPUT_PATH
 
-printf "\nindex.html\n">> ~/CODE/HTML/HHPC/w3cReport.txt
-curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @/Users/austinkemper/CODE/HTML/HHPC/index.html     https://validator.w3.org/nu/?out=gnu >> ~/CODE/HTML/HHPC/w3cReport.txt
-printf "\ncalendar.html\n">> ~/CODE/HTML/HHPC/w3cReport.txt
-curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @/Users/austinkemper/CODE/HTML/HHPC/html/calendar.html     https://validator.w3.org/nu/?out=gnu >> ~/CODE/HTML/HHPC/w3cReport.txt
-printf "\ncontact.html\n">> ~/CODE/HTML/HHPC/w3cReport.txt
-curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @/Users/austinkemper/CODE/HTML/HHPC/html/contact.html     https://validator.w3.org/nu/?out=gnu >> ~/CODE/HTML/HHPC/w3cReport.txt
-printf "\nmedia.html\n">> ~/CODE/HTML/HHPC/w3cReport.txt
-curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @/Users/austinkemper/CODE/HTML/HHPC/html/media.html     https://validator.w3.org/nu/?out=gnu >> ~/CODE/HTML/HHPC/w3cReport.txt
+printf "\nindex.html\n">> $OUTPUT_PATH
+curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @$HHPC_ROOT_PATH/index.html     https://validator.w3.org/nu/?out=gnu >> $OUTPUT_PATH
+sleep 1
+
+printf "\ncalendar.html\n">> $OUTPUT_PATH
+curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @$HHPC_ROOT_PATH/html/calendar.html     https://validator.w3.org/nu/?out=gnu >> $OUTPUT_PATH
+sleep 1
+
+printf "\ncontact.html\n">> $OUTPUT_PATH
+curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @$HHPC_ROOT_PATH/html/contact.html     https://validator.w3.org/nu/?out=gnu >> $OUTPUT_PATH
+sleep 1
+
+printf "\nmedia.html\n">> $OUTPUT_PATH
+curl -H "Content-Type: text/html; charset=utf-8"     --data-binary @$HHPC_ROOT_PATH/html/media.html     https://validator.w3.org/nu/?out=gnu >> $OUTPUT_PATH
+sleep 1
 
 #CSS
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
-echo "CSS">> ~/CODE/HTML/HHPC/w3cReport.txt
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
+echo "-------------------------------------" >> $OUTPUT_PATH
+echo "CSS">> $OUTPUT_PATH
+echo "-------------------------------------" >> $OUTPUT_PATH
 
-printf "\nthemestyle.css\n" >> ~/CODE/HTML/HHPC/w3cReport.txt
-curl -H "Content-Type: text/css; charset=utf-8"     --data-binary @/Users/austinkemper/CODE/HTML/HHPC/style/themestyle.css   https://validator.w3.org/nu/?out=gnu >> ~/CODE/HTML/HHPC/w3cReport.txt
+printf "\nthemestyle.css\n" >> $OUTPUT_PATH
+curl -F "file=@$HHPC_ROOT_PATH/style/themestyle.css;type=text/css" -F output=text/plain -F warning=0 http://jigsaw.w3.org/css-validator/validator | head -$CSS_LINES_TO_HEAD >> $OUTPUT_PATH
+echo "^^^^^^^^^ TEXT CUT OFF ^^^^^^^^" >> $OUTPUT_PATH
+sleep 1
 
+printf "\nindex.css\n" >> $OUTPUT_PATH
+curl -F "file=@$HHPC_ROOT_PATH/style/index.css;type=text/css" -F output=text/plain -F warning=0 http://jigsaw.w3.org/css-validator/validator | head -$CSS_LINES_TO_HEAD >> $OUTPUT_PATH
+echo "^^^^^^^^^ TEXT CUT OFF ^^^^^^^^" >> $OUTPUT_PATH
+sleep 1
+
+printf "\ncalendar.css\n" >> $OUTPUT_PATH
+curl -F "file=@$HHPC_ROOT_PATH/style/calendar.css;type=text/css" -F output=text/plain -F warning=0 http://jigsaw.w3.org/css-validator/validator | head -$CSS_LINES_TO_HEAD >> $OUTPUT_PATH
+echo "^^^^^^^^^ TEXT CUT OFF ^^^^^^^^" >> $OUTPUT_PATH
+sleep 1
+
+printf "\ncontact.css\n" >> $OUTPUT_PATH
+curl -F "file=@$HHPC_ROOT_PATH/style/contact.css;type=text/css" -F output=text/plain -F warning=0 http://jigsaw.w3.org/css-validator/validator | head -$CSS_LINES_TO_HEAD >> $OUTPUT_PATH
+echo "^^^^^^^^^ TEXT CUT OFF ^^^^^^^^" >> $OUTPUT_PATH
+sleep 1
+
+printf "\nmedia.css\n" >> $OUTPUT_PATH
+curl -F "file=@$HHPC_ROOT_PATH/style/media.css;type=text/css" -F output=text/plain -F warning=0 http://jigsaw.w3.org/css-validator/validator | head -$CSS_LINES_TO_HEAD >> $OUTPUT_PATH
+echo "^^^^^^^^^ TEXT CUT OFF ^^^^^^^^" >> $OUTPUT_PATH
+sleep 1
 
 #JS
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
-echo "JS">> $OUTPUTPATH
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
+echo "-------------------------------------" >> $OUTPUT_PATH
+echo "JS">> $OUTPUT_PATH
+echo "-------------------------------------" >> $OUTPUT_PATH
 
 
-echo "-------------------------------------" >> ~/CODE/HTML/HHPC/w3cReport.txt
+echo "-------------------------------------" >> $OUTPUT_PATH
 
