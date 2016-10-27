@@ -51,6 +51,7 @@ ul{
 .answer{
 	font: 90% sans-serif;
 	line-height: 130%;
+	padding-bottom: 20px;
 }
 .calendarDifferences {
 	list-style: circle;
