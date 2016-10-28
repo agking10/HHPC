@@ -80,7 +80,8 @@ function setUpHHPC(){
 			}
 
 		},
-		toString: function(){ return this.todaysDayOfTheWeek.name+ " "+this.todaysMonth.name + " " + this.todaysDay + ", " + this.todaysYear;}
+		toString: function(){ return this.todaysDayOfTheWeek.name+ " "+this.todaysMonth.name + " " + this.todaysDay + ", " + this.todaysYear;},
+		toStringYearFirst: function() { return this.todaysYear + " " + this.todaysMonth.name + " " + this.todaysDay + " " + this.todaysDayOfTheWeek.name;}
 	};
 
 	function getDifferenceBetweenTwoDates(d1, d2){
@@ -103,6 +104,6 @@ function setUpHHPC(){
 function setDate(){
 	var dateElement = document.getElementById("todaysdate");
 	var welcomeString = "Todays HHPC Date is: <br>"
-	dateElement.innerHTML = welcomeString + hhpc.toString();
+	dateElement.innerHTML = welcomeString + hhpc.toStringYearFirst();
 }
 
