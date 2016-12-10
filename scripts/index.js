@@ -7,7 +7,6 @@ function init(){
 
 var hhpc;
 
-
 function createMonth(name,numDays,index){
 	var month = {
 		name: name,
@@ -54,13 +53,23 @@ function setUpHHPC(){
 	var extraYears = [2015, 2020, 2026, 2032, 2037, 2043]; 
 
 	
+	//Set corresponding starts date to go forward from
+	var startGregorianYear = 2016;
+	var startGregorianMonth = 11;
+	var startGregorianDay = 2;
+
+	var startHHPCYear = 2016;
+	var startHHPCMonth = 11;
+	var startHHPCDay = 1;
+	var startHHPCDayOfTheWeekIndex = 4;
+
 	hhpc = {
 		months: months,
 		daysOfTheWeek: daysOfTheWeek,
-		todaysMonth: months[6], 
-		todaysDay: 1,
-		todaysDayOfTheWeek: daysOfTheWeek[0],
-		todaysYear: 2016,
+		todaysMonth: months[startHHPCMonth], 
+		todaysDay: startHHPCDay,
+		todaysDayOfTheWeek: daysOfTheWeek[startHHPCDayOfTheWeekIndex],
+		todaysYear: startHHPCYear,
 
 		goForward: function(){
 			this.todaysDay ++;
@@ -89,21 +98,21 @@ function setUpHHPC(){
 		var diffDays = Math.floor(Math.abs((d1.getTime() - d2.getTime())/(oneDay)));
 		return diffDays;
 	}
+
 	//Set number of days to go forward
-	var d1 = new Date(2016,06,4);
-	var d2 = new Date(); //today (enter explicitly to avoid rounding errors with time)
-	var numDaysToGoForward = getDifferenceBetweenTwoDates(d1,d2);
+	var now = new Date(); 
+	var dStart = new Date(startGregorianYear,startGregorianMonth,startGregorianDay);
+	var dEnd = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+	var numDaysToGoForward = getDifferenceBetweenTwoDates(dStart, dEnd);
 
-
-
+	//Go forward
 	for (var i = 0 ; i< numDaysToGoForward ; i++){
 		hhpc.goForward();
 	}
 }
 
 function setDate(){
-	var dateElement = document.getElementById("todaysdate");
-	var welcomeString = "Today's HHPC Date is: <br>"
-	dateElement.innerHTML = welcomeString + hhpc.toStringYearFirst();
+	var dateElement = document.getElementById("dateSlot");
+	dateElement.innerHTML = hhpc.toStringYearFirst();
 }
 
