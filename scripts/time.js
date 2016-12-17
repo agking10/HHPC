@@ -12,6 +12,7 @@ function startTime() {
     var m = today.getUTCMinutes();
     var s = today.getUTCSeconds();
 
+    //Check if we need to move a day forward.
     checkResetDay(h, m, s);
 
     m = checkTime(m);
