@@ -11,11 +11,23 @@ function startTime() {
     var h = today.getUTCHours();
     var m = today.getUTCMinutes();
     var s = today.getUTCSeconds();
+
+    checkResetDay(h, m, s);
+
     m = checkTime(m);
     s = checkTime(s);
     var timeSlot = document.getElementById("timeSlot");
     timeSlot.innerHTML = h + ":" + m + ":" + s;
     var t = setTimeout(startTime, 500);
+}
+
+function checkResetDay(h, m, s) {
+
+	if (h === 0 && m === 0 && s === 0) {
+		console.log("date change");
+		setUpHHPC();
+		setDate();
+	}
 }
 
 function checkTime(i) {

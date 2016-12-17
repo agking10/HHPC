@@ -2,11 +2,12 @@
 	text-align: center;
 	font-size: 250%;
 	font-family: serif;
-	margin: 50px;
+	line-height: 100%;
+	margin: 40px;
 }
 
 #mainimage{
-	width: 800px;
+	width: 900px;
 	margin-left: auto;
 	margin-right: auto;
 	/*margin: 10px 15%;*/
