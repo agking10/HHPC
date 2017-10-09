@@ -95,7 +95,7 @@ function setUpHHPC(){
 
 	function getDifferenceBetweenTwoDates(d1, d2){
 		var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-		var diffDays = Math.floor(Math.abs((d1.getTime() - d2.getTime())/(oneDay)));
+		var diffDays = Math.round(Math.abs((d1.getTime() - d2.getTime())/(oneDay)));
 		return diffDays;
 	}
 
